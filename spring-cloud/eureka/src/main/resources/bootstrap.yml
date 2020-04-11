@@ -1,0 +1,29 @@
+server:
+  port: 8001
+spring:
+  profiles:
+    active: dev
+  application:
+    name: hhy-eureka
+  security:
+    user:
+      name: "hhy"
+      password: "123456"
+  cloud:
+    config:
+      uri: http://localhost:8000/
+      profile: dev
+      name: hhy-eureka
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    serviceUrl:
+      defaultZone: http://hhy:123456@localhost:8001/eureka
+  instance:
+    prefer-ip-address: true
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 5000
+    use-read-only-response-cache: false
+
